@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <script>
+            	function LoadVideo()
+            	{
+				var divid1 = '<div id=\"1\">'
+				var divid2 = '<div id=\"2\">'
+            		var iframe1 = '<iframe height=\"1280\" width=\"720\" src=\"https://www.youtube.com/embed/';
+            		var iframe2 = '\"></iframe></div>';
+            		var vid1 = document.Input.vid1.value;
+            		var vid2 = document.Input.vid2.value;
+            		
+            		document.open();
+            		document.write(divid1 + iframe1 + vid1 + divid2 + iframe2 + iframe1 + vid2 + iframe2);
+            		document.close();
+            	}
+            </script>
+        </head>
+        <body>
+        	<style>
+        		#1
+				{
+					background-color:black
+				}
+				
+				#2
+				{
+					background-color:white
+				}
+			</style>
+			
+        	
+            
+            <div id="input">
+            	<form name="Input">
+            		<p>VID1:<input type="text" name="vid1"></p>
+            		<p>VID2:<input type="text" name="vid2"></p>
+            		<button onclick="LoadVideo()">Load</button>
+            	</form>
+            
+        </body>
+    </html>
