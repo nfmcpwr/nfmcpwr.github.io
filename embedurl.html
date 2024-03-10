@@ -2,8 +2,7 @@
     <html>
         <head>
             <meta charset="UTF-8">
-            <!--link rel="stylesheet" href=".css"-->
-            
+            <title>test</title>
             <script>
                 function getUrlQueries() 
                 {
@@ -27,6 +26,7 @@
                 function Load()
                 {
                     var query = getUrlQueries();
+                    var isdummy = 0;
                     if(query.button == "true")
                     {
                         var button = document.createElement("button");
@@ -35,7 +35,16 @@
                         button.onclick = () => 
                             {
                                 var urlframe = document.getElementById("extpage");
-                                urlframe.innerHTML = '<iframe src="/dummypage.html" />';
+                                if(isdummy == 1)
+                                {
+                                    isdummy = 0;
+                                    urlframe.innerHTML = '<iframe src="' + query.url + '" />';
+                                }
+                                else
+                                {
+                                    isdummy = 1;
+                                    urlframe.innerHTML = '<iframe src="/dummypage.html" />';
+                                }
                             };
                         
                         var tgt = document.getElementById("unload");
@@ -50,7 +59,6 @@
             </script>
         </head>
         <body>
-            <p>test</p>
             <div id="unload"></div>
             <div id="extpage"></div>
             <script>Load();</script>
