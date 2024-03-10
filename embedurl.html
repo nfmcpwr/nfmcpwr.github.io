@@ -29,7 +29,16 @@
                     var query = getUrlQueries();
                     if (query.button == "true")
                     {
+                        let button = document.createElement();
+                        button.innerHTML = "     ";
+
+                        button.onclick = () => 
+                            {
+                                alert("clicked");
+                            };
                         
+                        let tgt = document.getElementById("unload");
+                        tgt.appendChild(button);
                     }
                 }
             </script>
@@ -37,7 +46,8 @@
         <body>
             <p>test</p>
             <script>
-                loadUrl();
+                Load();
             </script>
+            <div id="unload"></div>
         </body>
     </html>
