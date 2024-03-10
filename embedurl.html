@@ -2,7 +2,7 @@
     <html>
         <head>
             <meta charset="UTF-8">
-            <link rel="stylesheet" href=".css">
+            <!--link rel="stylesheet" href=".css"-->
             
             <script>
                 function getUrlQueries() 
@@ -27,27 +27,32 @@
                 function Load()
                 {
                     var query = getUrlQueries();
-                    if (query.button == "true")
+                    if(query.button == "true")
                     {
-                        let button = document.createElement();
+                        var button = document.createElement("button");
                         button.innerHTML = "testButton";
 
                         button.onclick = () => 
                             {
-                                alert("clicked");
+                                var urlframe = document.getElementById("extpage");
+                                urlframe.innerHTML = '<iframe src="/dummypage.html" />';
                             };
                         
-                        let tgt = document.getElementById("unload");
+                        var tgt = document.getElementById("unload");
                         tgt.appendChild(button);
                     }
+                    
+                    var div = document.getElementById("extpage");
+                    var frame = document.createElement("iframe");
+                    frame.src = query.url;
+                    div.appendChild(frame);
                 }
             </script>
         </head>
         <body>
             <p>test</p>
-            <script>
-                Load();
-            </script>
-            <div id="unload" style="background:#000000;"></div>
+            <div id="unload" style="background:#53c7ea;"></div>
+            <div id="extpage"></div>
+            <script>Load();</script>
         </body>
     </html>
