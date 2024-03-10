@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href=".css">
+            
+            <script>
+                function getUrlQueries() 
+                {
+                    var queryStr = window.location.search.slice(1);
+                    queries = {};
+                
+                    if (!queryStr) 
+                    {
+                        return queries;
+                    }
+
+                    queryStr.split('&').forEach(function(queryStr) 
+                    {
+                        var queryArr = queryStr.split('=');
+                        queries[queryArr[0]] = queryArr[1];
+                    });
+  
+                    return queries;
+                }
+            
+                function Load()
+                {
+                    var query = getUrlQueries();
+                    if (query.button == "true")
+                    {
+                        
+                    }
+                }
+            </script>
+        </head>
+        <body>
+            <p>test</p>
+            <script>
+                loadUrl();
+            </script>
+        </body>
+    </html>
