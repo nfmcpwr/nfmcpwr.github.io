@@ -2,9 +2,30 @@
     <html>
         <head>
             <meta charset="UTF-8">
-            <!--link rel="stylesheet" href=".css"-->
+            <script>
+                function Button()
+                {
+                    var btn = document.createElement("button");
+                    btn.innerHTML = "link";
+
+                    btn.onclick = () => 
+                    {
+                        var button = document.embedurl.button.value;
+                        var url = document.embedurl.url.value;
+                        var elem = document.createElement("p");
+                        elem.innerHTML = "https://nfmcpwr.github.io/embedurl.html?button=" + button + "&url=" + url;
+                        document.getElementById("link").appendChild(elem);
+                    };
+                    document.getElementById("link").appendChild(btn);
+                }
+            </script>
         </head>
         <body>
-            <p>test<p>
+            <form name="embedurl">
+                <p>button:<input type="text" name=button></p>
+                <p>url:<input type="text" name=url></p>
+            </form>
+            <div id="link"></div>
+            <script>Button();</script>
         </body>
     </html>

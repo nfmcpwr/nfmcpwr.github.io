@@ -2,7 +2,8 @@
     <html>
         <head>
             <meta charset="UTF-8">
-            <title>test</title>
+            <link rel="icon" href="favicon.ico">
+            <title>講義動画 | スタディサプリ ENGLISH</title>
             <script>
                 function getUrlQueries() 
                 {
@@ -27,10 +28,19 @@
                 {
                     var query = getUrlQueries();
                     var isdummy = 0;
+
+                    /*if(query.type == "studysapuri")
+                    {
+                        document.body.background = "background.png";
+                    }*/
+
                     if(query.button == "true")
                     {
                         var button = document.createElement("button");
-                        button.innerHTML = "testButton";
+                        button.innerHTML = '<img src="buttonimg.png"></img>';
+                        button.style = "border:0; padding:0px 0px; background:#ffffff;";
+                        button.width = 44;
+                        button.height = 42;
 
                         button.onclick = () => 
                             {
@@ -38,12 +48,12 @@
                                 if(isdummy == 1)
                                 {
                                     isdummy = 0;
-                                    urlframe.innerHTML = '<iframe src="' + query.url + '" />';
+                                    urlframe.innerHTML = '<iframe src="' + query.url + '" width="500" height="300" />';
                                 }
                                 else
                                 {
                                     isdummy = 1;
-                                    urlframe.innerHTML = '<iframe src="/dummypage.html" />';
+                                    urlframe.innerHTML = '<iframe src="dummypage.html" width="500" height="300" />';
                                 }
                             };
                         
@@ -54,13 +64,30 @@
                     var div = document.getElementById("extpage");
                     var frame = document.createElement("iframe");
                     frame.src = query.url;
+                    frame.width = 500;
+                    frame.height = 300;
                     div.appendChild(frame);
                 }
             </script>
+            <style>
+                .frame
+                {
+                    position:absolute;
+                    top:17%;
+                    left:26%;
+                }
+
+                .btn
+                {
+                    position:absolute;
+                    top:2%;
+                    left:72%;
+                }
+            </style>
         </head>
-        <body>
-            <div id="unload"></div>
-            <div id="extpage"></div>
+        <body background="background.png">
+            <div id="unload" class="btn"></div>
+            <div id="extpage" class="frame"></div>
             <script>Load();</script>
         </body>
     </html>
