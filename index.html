@@ -2,6 +2,7 @@
     <html>
         <head>
             <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="github-mark.png">
             <script>
                 function Button()
                 {
@@ -13,7 +14,7 @@
                         var button = document.embedurl.button.value;
                         var url = document.embedurl.url.value;
                         var elem = document.createElement("p");
-                        elem.innerHTML = "https://nfmcpwr.github.io/embedurl.html?button=" + button + "&url=" + url;
+                        elem.innerHTML = '<a href="https://nfmcpwr.github.io/embedurl.html?button=' + button + '&url=' + url + '">link</a>';
                         document.getElementById("link").appendChild(elem);
                     };
                     document.getElementById("link").appendChild(btn);
