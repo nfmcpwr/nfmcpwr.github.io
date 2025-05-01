@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <script>
+                function Redirect()
+                {
+                    var querystr = window.location.search.slice(1);
+                    location.href = "maui-scheduler://googleauth?" + querystr;
+                }
+            </script>
+        </head>
+        <body>
+            <script>setTimeout("Redirect()", 3);</script>
+        </body>
+    </html>
